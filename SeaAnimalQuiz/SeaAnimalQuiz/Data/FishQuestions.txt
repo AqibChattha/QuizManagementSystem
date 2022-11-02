@@ -1,0 +1,24 @@
+﻿MultipleChoice,What is the largest sea animal?,Blue Whale,Blue Whale,Whale Shark,Giant Squid,Sperm Whale
+MultipleChoice,What is the smallest sea animal?,Sea Slug,Sea Horse,Sea Slug,Sea Squirt,Sea Star
+MultipleChoice,What is the fastest sea animal?,Sailfish,Swordfish,Sailfish,Marlin,Tuna
+MultipleChoice,What is the slowest sea animal?,Sea Slug,Sea Squirt,Sea Star,Sea Slug,Sea Horse
+MultipleChoice,What is the most dangerous sea animal ?,Great White Shark,Sperm Whale,Blue Whale,Giant Squid,Great White Shark
+MultipleChoice,What is the most poisonous sea animal ?,Blue Ringed Octopus,Sea Snake,Sea Urchin,Sea Cucumber,Blue Ringed Octopus
+MultipleChoice,What is the most venomous sea animal ?,Blue Ringed Octopus,Blue Ringed Octopus,Sea Snake,Sea Urchin,Sea Cucumber
+MultipleChoice,What is the most intelligent sea animal ?,Dolphin,Dolphin,Sperm Whale,Blue Whale,Giant Squid
+MultipleChoice,What is the most beautiful sea animal ?,Sea Slug,Sea Squirt,Sea Slug,Sea Star,Sea Horse
+MultipleChoice,What is the most colorful sea animal ?,Sea Slug,Sea Squirt,Sea Star,Sea Horse,Sea Slug
+TrueFalse,The octopus has three hearts.,True,True,False
+TrueFalse,The blue whale is the largest animal in the world.,True,True,False
+TrueFalse,The whale shark is the largest fish in the world.,True,True,False
+TrueFalse,Can a red octopus change colors.,True,True,False
+TrueFalse,Can a tuna swim backwards.,True,True,False
+TrueFalse,Sawfish is a type of shark.,False,True,False
+TrueFalse,Sea urchins,starfish and sea cucumbers belong in the same family.,True,True,False
+TrueFalse,All clownfish are born male.,True,True,False
+TrueFalse,All starfish have 5 arms.,False,True,False
+TrueFalse,Conger eels are the largest species of eel.,True,True,False
+TrueFalse,Anemones are capable of locomotion.,True,True,False
+TrueFalse,All jellyfish can photosynthesize.,False,True,False
+TrueFalse,Corals are plants.,False,True,False
+TrueFalse,Seahorses are predators.,True,True,False
