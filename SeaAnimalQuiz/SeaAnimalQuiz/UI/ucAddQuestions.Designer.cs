@@ -77,6 +77,7 @@
             // 
             // cbCategories
             // 
+            this.cbCategories.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbCategories.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbCategories.FormattingEnabled = true;
@@ -91,6 +92,7 @@
             // 
             // rbtnMcq
             // 
+            this.rbtnMcq.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.rbtnMcq.AutoSize = true;
             this.rbtnMcq.Location = new System.Drawing.Point(516, 107);
             this.rbtnMcq.Name = "rbtnMcq";
@@ -103,6 +105,7 @@
             // 
             // rbtnTrueFalse
             // 
+            this.rbtnTrueFalse.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.rbtnTrueFalse.AutoSize = true;
             this.rbtnTrueFalse.Location = new System.Drawing.Point(571, 107);
             this.rbtnTrueFalse.Name = "rbtnTrueFalse";
@@ -115,6 +118,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(125, 106);
             this.label1.Name = "label1";
@@ -124,7 +128,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAdd.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

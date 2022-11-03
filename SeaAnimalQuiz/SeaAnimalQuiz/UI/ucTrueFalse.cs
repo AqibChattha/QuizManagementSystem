@@ -49,7 +49,9 @@ namespace SeaAnimalQuiz.UI
             // set question text
             tbQuestionText.Text = trueFalse.QuestionText;
             setTextBox_Scroll();
-            
+
+            try { pbQuestion.BackgroundImage = Image.FromFile("../../Images/" + trueFalse.ImageFileName); } catch (Exception) { }
+
             rbAnswer1.Text = trueFalse.FirstAnswer;
             rbAnswer2.Text = trueFalse.SecondAnswer; 
 
@@ -131,11 +133,6 @@ namespace SeaAnimalQuiz.UI
             
             // start the timer to move to the next question
             tmrNextQuestion.Start();
-        }
-
-        private void tbQuestionText_Enter(object sender, EventArgs e)
-        {
-            
         }
     }
 }

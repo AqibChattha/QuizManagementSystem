@@ -17,11 +17,15 @@ namespace SeaAnimalQuiz.Classes
         // second expected answer
         string secondAnswer;
 
-        public TrueFalse(string questionText, string correctAnswer, string firstAnswer, string secondAnswer)
+        // image file name
+        string imageFileName;
+
+        public TrueFalse(string questionText, string correctAnswer, string firstAnswer, string secondAnswer, string imageFileName)
             : base(questionText, correctAnswer, QuestionType.TrueFalse)
         {
             this.firstAnswer = firstAnswer;
             this.secondAnswer = secondAnswer;
+            this.imageFileName = imageFileName;
         }
 
         /// <summary>
@@ -43,6 +47,17 @@ namespace SeaAnimalQuiz.Classes
             get
             {
                 return secondAnswer;
+            }
+        }
+
+        /// <summary>
+        /// This method will get the image file name.
+        /// </summary>
+        public string ImageFileName
+        {
+            get
+            {
+                return imageFileName;
             }
         }
 

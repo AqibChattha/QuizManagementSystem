@@ -31,17 +31,27 @@
             this.components = new System.ComponentModel.Container();
             this.tlpMcqQuestionAnswers = new System.Windows.Forms.TableLayoutPanel();
             this.tlpMcqAnswers = new System.Windows.Forms.TableLayoutPanel();
-            this.tbAnswer1 = new System.Windows.Forms.TextBox();
-            this.tbAnswer3 = new System.Windows.Forms.TextBox();
-            this.tmrNextQuestion = new System.Windows.Forms.Timer(this.components);
-            this.tbAnswer4 = new System.Windows.Forms.TextBox();
             this.tbAnswer2 = new System.Windows.Forms.TextBox();
+            this.tbAnswer3 = new System.Windows.Forms.TextBox();
+            this.tbAnswer4 = new System.Windows.Forms.TextBox();
+            this.tbAnswer1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbQuestion = new System.Windows.Forms.TextBox();
             this.tbCorrectAnswer = new System.Windows.Forms.TextBox();
+            this.pnlQuestionSection = new System.Windows.Forms.Panel();
+            this.pnlQuestion = new System.Windows.Forms.Panel();
+            this.tbQuestion = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.pbQuestion = new System.Windows.Forms.PictureBox();
+            this.tmrNextQuestion = new System.Windows.Forms.Timer(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tlpMcqQuestionAnswers.SuspendLayout();
             this.tlpMcqAnswers.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnlQuestionSection.SuspendLayout();
+            this.pnlQuestion.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestion)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpMcqQuestionAnswers
@@ -79,22 +89,22 @@
             this.tlpMcqAnswers.Size = new System.Drawing.Size(522, 56);
             this.tlpMcqAnswers.TabIndex = 0;
             // 
-            // tbAnswer1
+            // tbAnswer2
             // 
-            this.tbAnswer1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbAnswer1.BackColor = System.Drawing.Color.White;
-            this.tbAnswer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAnswer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAnswer1.ForeColor = System.Drawing.Color.DimGray;
-            this.tbAnswer1.Location = new System.Drawing.Point(13, 6);
-            this.tbAnswer1.Name = "tbAnswer1";
-            this.tbAnswer1.Size = new System.Drawing.Size(235, 15);
-            this.tbAnswer1.TabIndex = 0;
-            this.tbAnswer1.Tag = "Optional Answer 1";
-            this.tbAnswer1.Text = "Optional Answer 1";
-            this.tbAnswer1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbAnswer1.Enter += new System.EventHandler(this.textBoxFocus_Enter);
-            this.tbAnswer1.Leave += new System.EventHandler(this.textBoxFocus_Leave);
+            this.tbAnswer2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbAnswer2.BackColor = System.Drawing.Color.White;
+            this.tbAnswer2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAnswer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAnswer2.ForeColor = System.Drawing.Color.DimGray;
+            this.tbAnswer2.Location = new System.Drawing.Point(274, 6);
+            this.tbAnswer2.Name = "tbAnswer2";
+            this.tbAnswer2.Size = new System.Drawing.Size(235, 15);
+            this.tbAnswer2.TabIndex = 0;
+            this.tbAnswer2.Tag = "Optional Answer 2";
+            this.tbAnswer2.Text = "Optional Answer 2";
+            this.tbAnswer2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbAnswer2.Enter += new System.EventHandler(this.textBoxFocus_Enter);
+            this.tbAnswer2.Leave += new System.EventHandler(this.textBoxFocus_Leave);
             // 
             // tbAnswer3
             // 
@@ -113,10 +123,6 @@
             this.tbAnswer3.Enter += new System.EventHandler(this.textBoxFocus_Enter);
             this.tbAnswer3.Leave += new System.EventHandler(this.textBoxFocus_Leave);
             // 
-            // tmrNextQuestion
-            // 
-            this.tmrNextQuestion.Interval = 800;
-            // 
             // tbAnswer4
             // 
             this.tbAnswer4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -134,29 +140,29 @@
             this.tbAnswer4.Enter += new System.EventHandler(this.textBoxFocus_Enter);
             this.tbAnswer4.Leave += new System.EventHandler(this.textBoxFocus_Leave);
             // 
-            // tbAnswer2
+            // tbAnswer1
             // 
-            this.tbAnswer2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbAnswer2.BackColor = System.Drawing.Color.White;
-            this.tbAnswer2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAnswer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAnswer2.ForeColor = System.Drawing.Color.DimGray;
-            this.tbAnswer2.Location = new System.Drawing.Point(274, 6);
-            this.tbAnswer2.Name = "tbAnswer2";
-            this.tbAnswer2.Size = new System.Drawing.Size(235, 15);
-            this.tbAnswer2.TabIndex = 0;
-            this.tbAnswer2.Tag = "Optional Answer 2";
-            this.tbAnswer2.Text = "Optional Answer 2";
-            this.tbAnswer2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbAnswer2.Enter += new System.EventHandler(this.textBoxFocus_Enter);
-            this.tbAnswer2.Leave += new System.EventHandler(this.textBoxFocus_Leave);
+            this.tbAnswer1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbAnswer1.BackColor = System.Drawing.Color.White;
+            this.tbAnswer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAnswer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAnswer1.ForeColor = System.Drawing.Color.DimGray;
+            this.tbAnswer1.Location = new System.Drawing.Point(13, 6);
+            this.tbAnswer1.Name = "tbAnswer1";
+            this.tbAnswer1.Size = new System.Drawing.Size(235, 15);
+            this.tbAnswer1.TabIndex = 0;
+            this.tbAnswer1.Tag = "Optional Answer 1";
+            this.tbAnswer1.Text = "Optional Answer 1";
+            this.tbAnswer1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbAnswer1.Enter += new System.EventHandler(this.textBoxFocus_Enter);
+            this.tbAnswer1.Leave += new System.EventHandler(this.textBoxFocus_Leave);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.tbQuestion, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbCorrectAnswer, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pnlQuestionSection, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -165,27 +171,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.49711F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(522, 173);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // tbQuestion
-            // 
-            this.tbQuestion.AcceptsReturn = true;
-            this.tbQuestion.AcceptsTab = true;
-            this.tbQuestion.BackColor = System.Drawing.Color.White;
-            this.tbQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbQuestion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQuestion.ForeColor = System.Drawing.Color.DimGray;
-            this.tbQuestion.Location = new System.Drawing.Point(3, 3);
-            this.tbQuestion.Multiline = true;
-            this.tbQuestion.Name = "tbQuestion";
-            this.tbQuestion.ShortcutsEnabled = false;
-            this.tbQuestion.Size = new System.Drawing.Size(516, 135);
-            this.tbQuestion.TabIndex = 2;
-            this.tbQuestion.Tag = "Multiple Choice Question";
-            this.tbQuestion.Text = "Multiple Choice Question";
-            this.tbQuestion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbQuestion.TextChanged += new System.EventHandler(this.tbQuestion_TextChanged);
-            this.tbQuestion.Enter += new System.EventHandler(this.textBoxFocus_Enter);
-            this.tbQuestion.Leave += new System.EventHandler(this.textBoxFocus_Leave);
             // 
             // tbCorrectAnswer
             // 
@@ -204,6 +189,97 @@
             this.tbCorrectAnswer.Enter += new System.EventHandler(this.textBoxFocus_Enter);
             this.tbCorrectAnswer.Leave += new System.EventHandler(this.textBoxFocus_Leave);
             // 
+            // pnlQuestionSection
+            // 
+            this.pnlQuestionSection.Controls.Add(this.pnlQuestion);
+            this.pnlQuestionSection.Controls.Add(this.tableLayoutPanel2);
+            this.pnlQuestionSection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlQuestionSection.Location = new System.Drawing.Point(3, 3);
+            this.pnlQuestionSection.Name = "pnlQuestionSection";
+            this.pnlQuestionSection.Size = new System.Drawing.Size(516, 135);
+            this.pnlQuestionSection.TabIndex = 1;
+            // 
+            // pnlQuestion
+            // 
+            this.pnlQuestion.Controls.Add(this.tbQuestion);
+            this.pnlQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlQuestion.Location = new System.Drawing.Point(0, 0);
+            this.pnlQuestion.Name = "pnlQuestion";
+            this.pnlQuestion.Size = new System.Drawing.Size(355, 135);
+            this.pnlQuestion.TabIndex = 7;
+            // 
+            // tbQuestion
+            // 
+            this.tbQuestion.AcceptsReturn = true;
+            this.tbQuestion.AcceptsTab = true;
+            this.tbQuestion.BackColor = System.Drawing.Color.White;
+            this.tbQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbQuestion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuestion.ForeColor = System.Drawing.Color.DimGray;
+            this.tbQuestion.Location = new System.Drawing.Point(0, 0);
+            this.tbQuestion.Multiline = true;
+            this.tbQuestion.Name = "tbQuestion";
+            this.tbQuestion.ShortcutsEnabled = false;
+            this.tbQuestion.Size = new System.Drawing.Size(355, 135);
+            this.tbQuestion.TabIndex = 4;
+            this.tbQuestion.Tag = "Question";
+            this.tbQuestion.Text = "Question";
+            this.tbQuestion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbQuestion.Enter += new System.EventHandler(this.textBoxFocus_Enter);
+            this.tbQuestion.Leave += new System.EventHandler(this.textBoxFocus_Leave);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.btnBrowse, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.pbQuestion, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(355, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.55556F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.44444F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(161, 135);
+            this.tableLayoutPanel2.TabIndex = 6;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBrowse.AutoSize = true;
+            this.btnBrowse.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnBrowse.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.ForeColor = System.Drawing.Color.White;
+            this.btnBrowse.Location = new System.Drawing.Point(98, 105);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(60, 27);
+            this.btnBrowse.TabIndex = 3;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // pbQuestion
+            // 
+            this.pbQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbQuestion.Location = new System.Drawing.Point(3, 3);
+            this.pbQuestion.Name = "pbQuestion";
+            this.pbQuestion.Size = new System.Drawing.Size(155, 96);
+            this.pbQuestion.TabIndex = 0;
+            this.pbQuestion.TabStop = false;
+            // 
+            // tmrNextQuestion
+            // 
+            this.tmrNextQuestion.Interval = 800;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // ucAdd_MCQ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +293,12 @@
             this.tlpMcqAnswers.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.pnlQuestionSection.ResumeLayout(false);
+            this.pnlQuestion.ResumeLayout(false);
+            this.pnlQuestion.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,7 +313,13 @@
         private System.Windows.Forms.TextBox tbAnswer2;
         private System.Windows.Forms.TextBox tbAnswer4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox tbQuestion;
         private System.Windows.Forms.TextBox tbCorrectAnswer;
+        private System.Windows.Forms.Panel pnlQuestionSection;
+        private System.Windows.Forms.Panel pnlQuestion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.PictureBox pbQuestion;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox tbQuestion;
     }
 }

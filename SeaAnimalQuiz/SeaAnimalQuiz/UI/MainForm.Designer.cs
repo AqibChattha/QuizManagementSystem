@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.scMainPage = new System.Windows.Forms.SplitContainer();
             this.tlpMainMenu = new System.Windows.Forms.TableLayoutPanel();
@@ -184,6 +185,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 450);
             this.Controls.Add(this.pnlMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 440);
             this.Name = "MainForm";
             this.Text = "Quiz";

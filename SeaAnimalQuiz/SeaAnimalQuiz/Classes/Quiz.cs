@@ -85,13 +85,13 @@ namespace SeaAnimalQuiz.Classes
                             if (data[0].Equals(QuestionType.MultipleChoice.ToString()))
                             {
                                 // create MCQ and load data
-                                MCQ mcq = new MCQ(data[1], data[2], data[3], data[4], data[5], data[6]);
+                                MCQ mcq = new MCQ(data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
                                 questions.Add(mcq);
                             }
                             else if (data[0].Equals(QuestionType.TrueFalse.ToString()))
                             {
                                 // create True False and load data
-                                TrueFalse trueFalse = new TrueFalse(data[1], data[2], data[3], data[4]);
+                                TrueFalse trueFalse = new TrueFalse(data[1], data[2], data[3], data[4], data[5]);
                                 questions.Add(trueFalse);
                             }
                         }

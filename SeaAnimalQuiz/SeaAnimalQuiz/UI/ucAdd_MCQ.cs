@@ -16,8 +16,7 @@ namespace SeaAnimalQuiz.UI
     {
         private static ucAdd_MCQ _instance;
 
-        private string[] placeholders = { "Multiple Choice Question", "Correct Answer", "Optional Answer 1", "Optional Answer 2", "Optional Answer 3", "Optional Answer 4" };
-
+        private string[] placeholders = { "Question", "Correct Answer", "Optional Answer 1", "Optional Answer 2", "Optional Answer 3", "Optional Answer 4" };
 
         public static ucAdd_MCQ Instance
         {
@@ -34,13 +33,13 @@ namespace SeaAnimalQuiz.UI
         private ucAdd_MCQ()
         {
             InitializeComponent();
-
         }
 
         public void RefreshUc()
         {
             // set all text box text to their tags (placeholders) and set the text color to dim gray
             tbQuestion.Text = tbQuestion.Tag.ToString();
+
             tbCorrectAnswer.Text = tbCorrectAnswer.Tag.ToString();
             tbAnswer1.Text = tbAnswer1.Tag.ToString();
             tbAnswer2.Text = tbAnswer2.Tag.ToString();
@@ -53,6 +52,8 @@ namespace SeaAnimalQuiz.UI
             tbAnswer2.ForeColor = Color.DimGray;
             tbAnswer3.ForeColor = Color.DimGray;
             tbAnswer4.ForeColor = Color.DimGray;
+            
+            pbQuestion.BackgroundImage = null;
 
         }
 
@@ -60,13 +61,13 @@ namespace SeaAnimalQuiz.UI
         {
             try
             {
-                if (!(tbQuestion.Text.Equals("Multiple Choice Question") || tbCorrectAnswer.Text.Equals("Correct Answer") || tbAnswer1.Text.Equals("Optional Answer 1") || tbAnswer2.Text.Equals("Optional Answer 2") || tbAnswer3.Text.Equals("Optional Answer 3") || tbAnswer4.Text.Equals("Optional Answer 4")))
+                if (!(tbQuestion.Text.Equals("Question") || tbCorrectAnswer.Text.Equals("Correct Answer") || tbAnswer1.Text.Equals("Optional Answer 1") || tbAnswer2.Text.Equals("Optional Answer 2") || tbAnswer3.Text.Equals("Optional Answer 3") || tbAnswer4.Text.Equals("Optional Answer 4")))
                 {
                     if (File.Exists(filePath))
                     {
                         using (StreamWriter sw = File.AppendText(filePath))
                         {
-                            sw.WriteLine(QuestionType.MultipleChoice + ",;," + tbQuestion.Text + ",;," + tbCorrectAnswer.Text + ",;," + tbAnswer1.Text + ",;," + tbAnswer2.Text + ",;," + tbAnswer3.Text + ",;," + tbAnswer4.Text);
+                            sw.WriteLine(QuestionType.MultipleChoice + ",;," + tbQuestion.Text + ",;," + tbCorrectAnswer.Text + ",;," + tbAnswer1.Text + ",;," + tbAnswer2.Text + ",;," + tbAnswer3.Text + ",;," + tbAnswer4.Text + ",;," + GetImagePathAfterCopyingItToDataDirectory());
                         }
                         RefreshUc();
                     }
@@ -77,7 +78,7 @@ namespace SeaAnimalQuiz.UI
 
                         File.Create(filePath);
                         TextWriter sw = new StreamWriter(filePath);
-                        sw.WriteLine(QuestionType.MultipleChoice + ",;," + tbQuestion.Text + ",;," + tbCorrectAnswer.Text + ",;," + tbAnswer1.Text + ",;," + tbAnswer2.Text + ",;," + tbAnswer3.Text + ",;," + tbAnswer4.Text);
+                        sw.WriteLine(QuestionType.MultipleChoice + ",;," + tbQuestion.Text + ",;," + tbCorrectAnswer.Text + ",;," + tbAnswer1.Text + ",;," + tbAnswer2.Text + ",;," + tbAnswer3.Text + ",;," + tbAnswer4.Text + ",;," + GetImagePathAfterCopyingItToDataDirectory());
                         sw.Close();
                     }
                 }
@@ -112,11 +113,40 @@ namespace SeaAnimalQuiz.UI
             }
         }
 
-        private void tbQuestion_TextChanged(object sender, EventArgs e)
+        private string GetImagePathAfterCopyingItToDataDirectory()
         {
-            if (tbQuestion.Multiline)
+            try
             {
-                tbQuestion.ScrollBars = tbQuestion.Text.Length > (tbQuestion.Width + tbQuestion.Height) / 1.30f ? ScrollBars.Vertical : tbQuestion.Text.Split('\n').Length > tbQuestion.Height / tbQuestion.Font.Size / 1.4f ? ScrollBars.Vertical : ScrollBars.None;
+                string imageFileName = Path.GetFileName(openFileDialog1.FileName);
+                if (openFileDialog1.FileName != null)
+                {
+                    if (!Directory.Exists("../../Images"))
+                        Directory.CreateDirectory("../../Images");
+
+                    try { File.Copy(openFileDialog1.FileName, "../../Images/" + imageFileName); } catch (Exception) { }
+                    return imageFileName;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return "";
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string file = openFileDialog1.FileName;
+                try
+                {
+                    pbQuestion.BackgroundImage = new Bitmap(openFileDialog1.FileName);
+                }
+                catch (IOException)
+                {
+                }
             }
         }
     }

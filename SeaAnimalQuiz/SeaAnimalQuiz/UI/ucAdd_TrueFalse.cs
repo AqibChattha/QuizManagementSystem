@@ -35,17 +35,19 @@ namespace SeaAnimalQuiz.UI
 
         public void RefreshUc()
         {
-            tbQuestion.Text = "True False Question";
+            tbQuestion.Text = tbQuestion.Tag.ToString();
             tbQuestion.ForeColor = Color.DimGray;
 
             rbAnswer1.Checked = false;
             rbAnswer2.Checked = false;
+
+            pbQuestion.BackgroundImage = null;
         }
 
         private void tbQuestion_Enter(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            if (textBox.Text.Equals("True False Question"))
+            if (textBox.Text.Equals("Question"))
             {
                 textBox.Text = "";
                 textBox.ForeColor = Color.Black;
@@ -85,13 +87,13 @@ namespace SeaAnimalQuiz.UI
             {
                 try
                 {
-                    if (!(tbQuestion.Text.Equals("True False Question")))
+                    if (!(tbQuestion.Text.Equals("Question")))
                     {
                         if (File.Exists(filePath))
                         {
                             using (StreamWriter sw = File.AppendText(filePath))
                             {
-                                sw.WriteLine(QuestionType.TrueFalse + ",;," + tbQuestion.Text + ",;," + getChoice() + ",;," + rbAnswer1.Text + ",;," + rbAnswer2.Text);
+                                sw.WriteLine(QuestionType.TrueFalse + ",;," + tbQuestion.Text + ",;," + getChoice() + ",;," + rbAnswer1.Text + ",;," + rbAnswer2.Text + ",;," + GetImagePathAfterCopyingItToDataDirectory());
                             }
                             RefreshUc();
                         }
@@ -102,7 +104,7 @@ namespace SeaAnimalQuiz.UI
 
                             File.Create(filePath);
                             TextWriter sw = new StreamWriter(filePath);
-                            sw.WriteLine(QuestionType.TrueFalse + ",;," + tbQuestion.Text + ",;," + getChoice() + ",;," + rbAnswer1.Text + ",;," + rbAnswer2.Text);
+                            sw.WriteLine(QuestionType.TrueFalse + ",;," + tbQuestion.Text + ",;," + getChoice() + ",;," + rbAnswer1.Text + ",;," + rbAnswer2.Text + ",;," + GetImagePathAfterCopyingItToDataDirectory());
                             sw.Close();
                         }
                     }
@@ -114,6 +116,43 @@ namespace SeaAnimalQuiz.UI
                 catch (Exception)
                 {
                     MessageBox.Show("Error saving question", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private string GetImagePathAfterCopyingItToDataDirectory()
+        {
+            try
+            {
+                string imageFileName = Path.GetFileName(openFileDialog1.FileName);
+                if (openFileDialog1.FileName != null)
+                {
+                    if (!Directory.Exists("../../Images"))
+                        Directory.CreateDirectory("../../Images");
+
+                    try { File.Copy(openFileDialog1.FileName, "../../Images/" + imageFileName); } catch (Exception) { }
+                    return imageFileName;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return "";
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string file = openFileDialog1.FileName;
+                try
+                {
+                    pbQuestion.BackgroundImage = new Bitmap(openFileDialog1.FileName);
+                }
+                catch (IOException)
+                {
                 }
             }
         }

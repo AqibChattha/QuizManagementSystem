@@ -47,6 +47,8 @@ namespace SeaAnimalQuiz.UI
             tbQuestionText.Text = mcq.QuestionText;
             setTextBox_Scroll();
 
+            try { pbQuestion.BackgroundImage = Image.FromFile("../../Images/" + mcq.ImageFileName); } catch (Exception) { }
+
             btnAnswer1.Text = mcq.Answer1;
             btnAnswer2.Text = mcq.Answer2;
             btnAnswer3.Text = mcq.Answer3;

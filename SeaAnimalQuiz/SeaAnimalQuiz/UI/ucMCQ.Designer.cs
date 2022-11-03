@@ -35,10 +35,14 @@
             this.btnAnswer2 = new System.Windows.Forms.Button();
             this.btnAnswer3 = new System.Windows.Forms.Button();
             this.btnAnswer4 = new System.Windows.Forms.Button();
-            this.tbQuestionText = new System.Windows.Forms.TextBox();
             this.tmrNextQuestion = new System.Windows.Forms.Timer(this.components);
+            this.pnlQuestion = new System.Windows.Forms.Panel();
+            this.tbQuestionText = new System.Windows.Forms.TextBox();
+            this.pbQuestion = new System.Windows.Forms.PictureBox();
             this.tlpMcqQuestionAnswers.SuspendLayout();
             this.tlpMcqAnswers.SuspendLayout();
+            this.pnlQuestion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestion)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpMcqQuestionAnswers
@@ -47,7 +51,7 @@
             this.tlpMcqQuestionAnswers.ColumnCount = 1;
             this.tlpMcqQuestionAnswers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMcqQuestionAnswers.Controls.Add(this.tlpMcqAnswers, 0, 1);
-            this.tlpMcqQuestionAnswers.Controls.Add(this.tbQuestionText, 0, 0);
+            this.tlpMcqQuestionAnswers.Controls.Add(this.pnlQuestion, 0, 0);
             this.tlpMcqQuestionAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMcqQuestionAnswers.Location = new System.Drawing.Point(0, 0);
             this.tlpMcqQuestionAnswers.Name = "tlpMcqQuestionAnswers";
@@ -144,26 +148,47 @@
             this.btnAnswer4.UseVisualStyleBackColor = false;
             this.btnAnswer4.Click += new System.EventHandler(this.btnAnswer_Click);
             // 
-            // tbQuestionText
-            // 
-            this.tbQuestionText.BackColor = System.Drawing.Color.White;
-            this.tbQuestionText.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbQuestionText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbQuestionText.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQuestionText.Location = new System.Drawing.Point(3, 3);
-            this.tbQuestionText.Multiline = true;
-            this.tbQuestionText.Name = "tbQuestionText";
-            this.tbQuestionText.ReadOnly = true;
-            this.tbQuestionText.ShortcutsEnabled = false;
-            this.tbQuestionText.Size = new System.Drawing.Size(522, 138);
-            this.tbQuestionText.TabIndex = 1;
-            this.tbQuestionText.Text = "Multiple Choice Questions";
-            this.tbQuestionText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tmrNextQuestion
             // 
             this.tmrNextQuestion.Interval = 800;
             this.tmrNextQuestion.Tick += new System.EventHandler(this.tmrNextQuestion_Tick);
+            // 
+            // pnlQuestion
+            // 
+            this.pnlQuestion.Controls.Add(this.tbQuestionText);
+            this.pnlQuestion.Controls.Add(this.pbQuestion);
+            this.pnlQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlQuestion.Location = new System.Drawing.Point(3, 3);
+            this.pnlQuestion.Name = "pnlQuestion";
+            this.pnlQuestion.Size = new System.Drawing.Size(522, 138);
+            this.pnlQuestion.TabIndex = 1;
+            // 
+            // tbQuestionText
+            // 
+            this.tbQuestionText.BackColor = System.Drawing.Color.White;
+            this.tbQuestionText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbQuestionText.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbQuestionText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbQuestionText.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuestionText.Location = new System.Drawing.Point(0, 0);
+            this.tbQuestionText.Multiline = true;
+            this.tbQuestionText.Name = "tbQuestionText";
+            this.tbQuestionText.ReadOnly = true;
+            this.tbQuestionText.ShortcutsEnabled = false;
+            this.tbQuestionText.Size = new System.Drawing.Size(384, 138);
+            this.tbQuestionText.TabIndex = 6;
+            this.tbQuestionText.Text = "Multiple Choice Questions";
+            this.tbQuestionText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pbQuestion
+            // 
+            this.pbQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbQuestion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbQuestion.Location = new System.Drawing.Point(384, 0);
+            this.pbQuestion.Name = "pbQuestion";
+            this.pbQuestion.Size = new System.Drawing.Size(138, 138);
+            this.pbQuestion.TabIndex = 5;
+            this.pbQuestion.TabStop = false;
             // 
             // ucMCQ
             // 
@@ -174,8 +199,10 @@
             this.Name = "ucMCQ";
             this.Size = new System.Drawing.Size(528, 241);
             this.tlpMcqQuestionAnswers.ResumeLayout(false);
-            this.tlpMcqQuestionAnswers.PerformLayout();
             this.tlpMcqAnswers.ResumeLayout(false);
+            this.pnlQuestion.ResumeLayout(false);
+            this.pnlQuestion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,6 +216,8 @@
         private System.Windows.Forms.Button btnAnswer3;
         private System.Windows.Forms.Button btnAnswer4;
         private System.Windows.Forms.Timer tmrNextQuestion;
+        private System.Windows.Forms.Panel pnlQuestion;
         private System.Windows.Forms.TextBox tbQuestionText;
+        private System.Windows.Forms.PictureBox pbQuestion;
     }
 }
