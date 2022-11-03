@@ -109,6 +109,9 @@ namespace SeaAnimalQuiz.UI
             btnAnswer2.Enabled = false;
             btnAnswer3.Enabled = false;
             btnAnswer4.Enabled = false;
+            
+            // lose focus from the text box
+            ucQuiz.Instance.LoseFocus();
 
             // refresh the score
             ucQuiz.Instance.RefreshScore();

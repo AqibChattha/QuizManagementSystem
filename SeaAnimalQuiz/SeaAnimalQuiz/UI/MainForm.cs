@@ -63,35 +63,32 @@ namespace SeaAnimalQuiz
             tlpMainMenu.BringToFront();
         }
 
-        public void SetQuizPage()
+        public void SetQuizPage(QuizCategory category)
         {
-            if (pnlMain.Controls.Contains(ucQuiz.Instance))
+            if (ucQuiz.Instance.SetQuiz(category))
             {
+                if (!pnlMain.Controls.Contains(ucQuiz.Instance))
+                {
+                    pnlMain.Controls.Add(ucQuiz.Instance);
+                }
                 ucQuiz.Instance.Dock = DockStyle.Fill;
                 ucQuiz.Instance.RefreshUc();
                 ucQuiz.Instance.BringToFront();
             }
             else
             {
-                pnlMain.Controls.Add(ucQuiz.Instance);
-                ucQuiz.Instance.Dock = DockStyle.Fill;
-                ucQuiz.Instance.BringToFront();
+                MessageBox.Show("Not enough questions available for this category. Please add questions to this category.", "No Questions", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (scMainPage.Panel1.Controls.Contains(ucCategories.Instance))
-            {
-                ucCategories.Instance.Dock = DockStyle.Fill;
-                ucCategories.Instance.BringToFront();
-            }
-            else
+            if (!scMainPage.Panel1.Controls.Contains(ucCategories.Instance))
             {
                 scMainPage.Panel1.Controls.Add(ucCategories.Instance);
-                ucCategories.Instance.Dock = DockStyle.Fill;
-                ucCategories.Instance.BringToFront();
             }
+            ucCategories.Instance.Dock = DockStyle.Fill;
+            ucCategories.Instance.BringToFront();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -101,7 +98,13 @@ namespace SeaAnimalQuiz
 
         private void btnAddQuestions_Click(object sender, EventArgs e)
         {
-
+            if (!pnlMain.Controls.Contains(ucAddQuestions.Instance))
+            {
+                pnlMain.Controls.Add(ucAddQuestions.Instance);
+            }
+            ucAddQuestions.Instance.RefreshUc();
+            ucAddQuestions.Instance.Dock = DockStyle.Fill;
+            ucAddQuestions.Instance.BringToFront();
         }
     }
 }

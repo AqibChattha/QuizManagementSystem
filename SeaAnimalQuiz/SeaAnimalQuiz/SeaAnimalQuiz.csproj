@@ -58,6 +58,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ucAddQuestions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucAddQuestions.Designer.cs">
+      <DependentUpon>ucAddQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucAdd_TrueFalse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucAdd_TrueFalse.Designer.cs">
+      <DependentUpon>ucAdd_TrueFalse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucAdd_MCQ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucAdd_MCQ.Designer.cs">
+      <DependentUpon>ucAdd_MCQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ucQuizResult.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +119,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\ucAddQuestions.resx">
+      <DependentUpon>ucAddQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucAdd_MCQ.resx">
+      <DependentUpon>ucAdd_MCQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucAdd_TrueFalse.resx">
+      <DependentUpon>ucAdd_TrueFalse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ucQuizResult.resx">
       <DependentUpon>ucQuizResult.cs</DependentUpon>
     </EmbeddedResource>

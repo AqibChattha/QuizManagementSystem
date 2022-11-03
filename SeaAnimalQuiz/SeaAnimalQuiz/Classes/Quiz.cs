@@ -60,6 +60,14 @@ namespace SeaAnimalQuiz.Classes
             {
                 file = "../../Data/FishQuestions.txt";
             }
+            else if (category == QuizCategory.Birds)
+            {
+                file = "../../Data/BirdQuestions.txt";
+            }
+            else if (category == QuizCategory.Reptiles)
+            {
+                file = "../../Data/ReptileQuestions.txt";
+            }
 
             try
             {
@@ -73,7 +81,7 @@ namespace SeaAnimalQuiz.Classes
                     {
                         if (!(ln == null || ln == ""))
                         {
-                            string[] data = ln.Split(',');
+                            string[] data = ln.Split(new string[] { ",;," }, StringSplitOptions.None);
                             if (data[0].Equals(QuestionType.MultipleChoice.ToString()))
                             {
                                 // create MCQ and load data
@@ -217,7 +225,7 @@ namespace SeaAnimalQuiz.Classes
             {
                 return questions[index];
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -275,10 +283,22 @@ namespace SeaAnimalQuiz.Classes
                 return currentQuestionNumber + 1;
             }
         }
-
+        /// <summary>
+        /// This method returns the number of questions remaining in the quiz
+        /// </summary>
+        /// <returns></returns>
         public int QuestionsRemaining()
         {
-            return questions.Count - CurrentQuestionNumber;
+            return questions.Count - (IncorrectAnswers + CorrectAnswers);
+        }
+
+        /// <summary>
+        /// This method returns the total number of questions in the quiz
+        /// </summary>
+        /// <returns></returns>
+        public int totalQuestions()
+        {
+            return questions.Count;
         }
     }
 }

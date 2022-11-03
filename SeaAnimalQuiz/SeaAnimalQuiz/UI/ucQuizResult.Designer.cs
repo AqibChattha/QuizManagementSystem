@@ -163,7 +163,7 @@
             // 
             // cQuestion
             // 
-            this.cQuestion.HeaderText = "Incorrect Quesetion";
+            this.cQuestion.HeaderText = "Incorrect Questions";
             this.cQuestion.Name = "cQuestion";
             this.cQuestion.ReadOnly = true;
             // 

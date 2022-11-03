@@ -35,7 +35,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAddQuestions = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.lbTitel = new System.Windows.Forms.Label();
             this.pdBackground = new System.Windows.Forms.PictureBox();
             this.pnlMain.SuspendLayout();
@@ -104,7 +103,6 @@
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnAddQuestions);
             this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Controls.Add(this.btnHelp);
             this.panel1.Location = new System.Drawing.Point(3, 83);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(329, 364);
@@ -154,21 +152,6 @@
             this.btnStart.Text = "Start Quiz";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnHelp.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(23, 160);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(283, 45);
-            this.btnHelp.TabIndex = 0;
-            this.btnHelp.Text = "Help";
-            this.btnHelp.UseVisualStyleBackColor = false;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // lbTitel
             // 
@@ -226,7 +209,6 @@
         private System.Windows.Forms.Button btnAddQuestions;
         private System.Windows.Forms.PictureBox pdBackground;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Label lbTitel;
         private System.Windows.Forms.TableLayoutPanel tlpMainMenu;
         private System.Windows.Forms.Panel panel1;

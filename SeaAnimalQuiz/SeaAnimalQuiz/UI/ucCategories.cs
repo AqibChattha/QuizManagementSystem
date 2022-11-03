@@ -37,12 +37,22 @@ namespace SeaAnimalQuiz.UI
 
         private void btnFish_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.SetQuizPage();
+            MainForm.Instance.SetQuizPage(QuizCategory.Fish);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             MainForm.Instance.SetHomePageMenu();
+        }
+
+        private void btnBirds_Click(object sender, EventArgs e)
+        {
+            MainForm.Instance.SetQuizPage(QuizCategory.Birds);
+        }
+
+        private void btnReptiles_Click(object sender, EventArgs e)
+        {
+            MainForm.Instance.SetQuizPage(QuizCategory.Reptiles);
         }
     }
 }

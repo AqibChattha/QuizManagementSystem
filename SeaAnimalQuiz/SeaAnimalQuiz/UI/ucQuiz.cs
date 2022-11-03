@@ -48,23 +48,26 @@ namespace SeaAnimalQuiz.UI
 
         private void ucQuiz_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public bool SetQuiz(QuizCategory category)
+        {
+            // set the current quiz
             _currentQuiz = new Quiz();
-            _currentQuiz.LoadQuestions(QuizCategory.Fish);
-            RefreshScore();
-            if (_currentQuiz.CurrentQuestion.QuestionType == QuestionType.MultipleChoice)
-            {
-                DisplayMCQ(_currentQuiz.CurrentQuestion);
-            }
-            else if (_currentQuiz.CurrentQuestion.QuestionType == QuestionType.TrueFalse)
-            {
-                DisplayTrueFalse(_currentQuiz.CurrentQuestion);
-            }
+
+            // set the quiz title
+            _currentQuiz.LoadQuestions(category);
+
+            if (_currentQuiz.totalQuestions() >= 10)
+                return true;
+
+            return false;
         }
 
         public void RefreshUc()
         {
-            _currentQuiz = new Quiz();
-            _currentQuiz.LoadQuestions(QuizCategory.Fish);
+            RefreshScore();
             if (_currentQuiz.CurrentQuestion.QuestionType == QuestionType.MultipleChoice)
             {
                 DisplayMCQ(_currentQuiz.CurrentQuestion);
@@ -115,7 +118,8 @@ namespace SeaAnimalQuiz.UI
                 ucQuizResult.Instance.Dock = DockStyle.Fill;
                 ucQuizResult.Instance.RefreshUc(_incorrectQuestions, result);
                 ucQuizResult.Instance.BringToFront();
-            }else
+            }
+            else
             {
                 _currentQuiz.NextQuestion();
                 if (_currentQuiz.CurrentQuestion.QuestionType == QuestionType.MultipleChoice)
@@ -159,6 +163,21 @@ namespace SeaAnimalQuiz.UI
         private void btnBack_Click(object sender, EventArgs e)
         {
             MainForm.Instance.SetHomePage();
+        }
+
+        private void pbQuizBackground_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbLoseFocus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlQuestion_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

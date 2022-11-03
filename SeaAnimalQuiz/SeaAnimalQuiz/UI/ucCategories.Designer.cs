@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbCategory = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnReptiles = new System.Windows.Forms.Button();
             this.btnBirds = new System.Windows.Forms.Button();
             this.btnFish = new System.Windows.Forms.Button();
+            this.lbCategory = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,19 +56,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 450);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // lbCategory
-            // 
-            this.lbCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbCategory.AutoSize = true;
-            this.lbCategory.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategory.ForeColor = System.Drawing.Color.White;
-            this.lbCategory.Location = new System.Drawing.Point(17, 24);
-            this.lbCategory.Name = "lbCategory";
-            this.lbCategory.Size = new System.Drawing.Size(295, 33);
-            this.lbCategory.TabIndex = 2;
-            this.lbCategory.Text = "Select Any Category";
-            this.lbCategory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
             // 
@@ -112,6 +99,7 @@
             this.btnReptiles.TabIndex = 0;
             this.btnReptiles.Text = "Reptiles";
             this.btnReptiles.UseVisualStyleBackColor = false;
+            this.btnReptiles.Click += new System.EventHandler(this.btnReptiles_Click);
             // 
             // btnBirds
             // 
@@ -126,6 +114,7 @@
             this.btnBirds.TabIndex = 0;
             this.btnBirds.Text = "Birds";
             this.btnBirds.UseVisualStyleBackColor = false;
+            this.btnBirds.Click += new System.EventHandler(this.btnBirds_Click);
             // 
             // btnFish
             // 
@@ -141,6 +130,19 @@
             this.btnFish.Text = "Fish";
             this.btnFish.UseVisualStyleBackColor = false;
             this.btnFish.Click += new System.EventHandler(this.btnFish_Click);
+            // 
+            // lbCategory
+            // 
+            this.lbCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCategory.AutoSize = true;
+            this.lbCategory.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategory.ForeColor = System.Drawing.Color.White;
+            this.lbCategory.Location = new System.Drawing.Point(17, 24);
+            this.lbCategory.Name = "lbCategory";
+            this.lbCategory.Size = new System.Drawing.Size(295, 33);
+            this.lbCategory.TabIndex = 2;
+            this.lbCategory.Text = "Select Any Category";
+            this.lbCategory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ucCategories
             // 

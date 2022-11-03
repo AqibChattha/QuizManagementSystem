@@ -51,6 +51,7 @@
             this.pnlQuestion.Name = "pnlQuestion";
             this.pnlQuestion.Size = new System.Drawing.Size(528, 198);
             this.pnlQuestion.TabIndex = 1;
+            this.pnlQuestion.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlQuestion_Paint);
             // 
             // btnBack
             // 
@@ -167,6 +168,7 @@
             this.pbQuizBackground.Size = new System.Drawing.Size(784, 450);
             this.pbQuizBackground.TabIndex = 0;
             this.pbQuizBackground.TabStop = false;
+            this.pbQuizBackground.Click += new System.EventHandler(this.pbQuizBackground_Click);
             // 
             // lbLoseFocus
             // 
@@ -175,6 +177,7 @@
             this.lbLoseFocus.Name = "lbLoseFocus";
             this.lbLoseFocus.Size = new System.Drawing.Size(0, 13);
             this.lbLoseFocus.TabIndex = 4;
+            this.lbLoseFocus.Click += new System.EventHandler(this.lbLoseFocus_Click);
             // 
             // ucQuiz
             // 

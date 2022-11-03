@@ -35,8 +35,8 @@
             this.btnAnswer2 = new System.Windows.Forms.Button();
             this.btnAnswer3 = new System.Windows.Forms.Button();
             this.btnAnswer4 = new System.Windows.Forms.Button();
-            this.tmrNextQuestion = new System.Windows.Forms.Timer(this.components);
             this.tbQuestionText = new System.Windows.Forms.TextBox();
+            this.tmrNextQuestion = new System.Windows.Forms.Timer(this.components);
             this.tlpMcqQuestionAnswers.SuspendLayout();
             this.tlpMcqAnswers.SuspendLayout();
             this.SuspendLayout();
@@ -68,12 +68,12 @@
             this.tlpMcqAnswers.Controls.Add(this.btnAnswer3, 0, 1);
             this.tlpMcqAnswers.Controls.Add(this.btnAnswer4, 1, 1);
             this.tlpMcqAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpMcqAnswers.Location = new System.Drawing.Point(3, 148);
+            this.tlpMcqAnswers.Location = new System.Drawing.Point(3, 147);
             this.tlpMcqAnswers.Name = "tlpMcqAnswers";
             this.tlpMcqAnswers.RowCount = 2;
             this.tlpMcqAnswers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMcqAnswers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMcqAnswers.Size = new System.Drawing.Size(522, 90);
+            this.tlpMcqAnswers.Size = new System.Drawing.Size(522, 91);
             this.tlpMcqAnswers.TabIndex = 0;
             // 
             // btnAnswer1
@@ -121,7 +121,7 @@
             this.btnAnswer3.ForeColor = System.Drawing.Color.White;
             this.btnAnswer3.Location = new System.Drawing.Point(3, 48);
             this.btnAnswer3.Name = "btnAnswer3";
-            this.btnAnswer3.Size = new System.Drawing.Size(255, 39);
+            this.btnAnswer3.Size = new System.Drawing.Size(255, 40);
             this.btnAnswer3.TabIndex = 1;
             this.btnAnswer3.Text = "Answer 3";
             this.btnAnswer3.UseVisualStyleBackColor = false;
@@ -138,20 +138,16 @@
             this.btnAnswer4.ForeColor = System.Drawing.Color.White;
             this.btnAnswer4.Location = new System.Drawing.Point(264, 48);
             this.btnAnswer4.Name = "btnAnswer4";
-            this.btnAnswer4.Size = new System.Drawing.Size(255, 39);
+            this.btnAnswer4.Size = new System.Drawing.Size(255, 40);
             this.btnAnswer4.TabIndex = 1;
             this.btnAnswer4.Text = "Answer 4";
             this.btnAnswer4.UseVisualStyleBackColor = false;
             this.btnAnswer4.Click += new System.EventHandler(this.btnAnswer_Click);
             // 
-            // tmrNextQuestion
-            // 
-            this.tmrNextQuestion.Interval = 800;
-            this.tmrNextQuestion.Tick += new System.EventHandler(this.tmrNextQuestion_Tick);
-            // 
             // tbQuestionText
             // 
             this.tbQuestionText.BackColor = System.Drawing.Color.White;
+            this.tbQuestionText.Cursor = System.Windows.Forms.Cursors.Default;
             this.tbQuestionText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbQuestionText.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQuestionText.Location = new System.Drawing.Point(3, 3);
@@ -159,10 +155,15 @@
             this.tbQuestionText.Name = "tbQuestionText";
             this.tbQuestionText.ReadOnly = true;
             this.tbQuestionText.ShortcutsEnabled = false;
-            this.tbQuestionText.Size = new System.Drawing.Size(522, 139);
+            this.tbQuestionText.Size = new System.Drawing.Size(522, 138);
             this.tbQuestionText.TabIndex = 1;
             this.tbQuestionText.Text = "Multiple Choice Questions";
             this.tbQuestionText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tmrNextQuestion
+            // 
+            this.tmrNextQuestion.Interval = 800;
+            this.tmrNextQuestion.Tick += new System.EventHandler(this.tmrNextQuestion_Tick);
             // 
             // ucMCQ
             // 
