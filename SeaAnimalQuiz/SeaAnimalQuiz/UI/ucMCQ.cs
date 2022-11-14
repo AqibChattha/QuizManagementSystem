@@ -1,6 +1,7 @@
 ﻿using SeaAnimalQuiz.Classes;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
@@ -47,7 +48,7 @@ namespace SeaAnimalQuiz.UI
             tbQuestionText.Text = mcq.QuestionText;
             setTextBox_Scroll();
 
-            try { pbQuestion.BackgroundImage = Image.FromFile("../../Images/" + mcq.ImageFileName); } catch (Exception) { pbQuestion.BackgroundImage = null; }
+            try { pbQuestion.BackgroundImage = byteArrayToImage(mcq.Image); } catch (Exception) { pbQuestion.BackgroundImage = null; }
 
             btnAnswer1.Text = mcq.Answer1;
             btnAnswer2.Text = mcq.Answer2;
@@ -65,6 +66,14 @@ namespace SeaAnimalQuiz.UI
             btnAnswer2.Enabled = true;
             btnAnswer3.Enabled = true;
             btnAnswer4.Enabled = true;
+        }
+
+        // byte array to Image
+        private Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
         }
 
         private void setTextBox_Scroll()

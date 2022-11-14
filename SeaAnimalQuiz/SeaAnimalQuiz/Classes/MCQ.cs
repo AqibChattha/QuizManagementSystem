@@ -24,8 +24,8 @@ namespace SeaAnimalQuiz.Classes
         // The fourth possible answer.
         string answer4;
 
-        // image file name
-        string imageFileName;
+        // image file
+        byte[] image;
 
         /// <summary>
         /// constructor for the MCQ class.
@@ -36,14 +36,14 @@ namespace SeaAnimalQuiz.Classes
         /// <param name="answer2"></param>
         /// <param name="answer3"></param>
         /// <param name="correctAnswer"></param>
-        public MCQ(string questionText, string correctAnswer, string answer1, string answer2, string answer3, string answer4, string imageFileName)
+        public MCQ(string questionText, string correctAnswer, string answer1, string answer2, string answer3, string answer4, byte[] image)
             : base(questionText, correctAnswer, QuestionType.MultipleChoice)
         {
             this.answer1 = answer1;
             this.answer2 = answer2;
             this.answer3 = answer3;
             this.answer4 = answer4;
-            this.imageFileName = imageFileName;
+            this.image = image;
         }
 
         /// <summary>
@@ -103,11 +103,11 @@ namespace SeaAnimalQuiz.Classes
         /// <summary>
         /// this will return the image file name
         /// </summary>
-        public string ImageFileName
+        public byte[] Image
         {
             get
             {
-                return imageFileName;
+                return image;
             }
         }
 

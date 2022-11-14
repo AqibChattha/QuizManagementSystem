@@ -46,22 +46,19 @@ namespace SeaAnimalQuiz.UI
             InitializeComponent();
         }
 
-        private void ucQuiz_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public bool SetQuiz(QuizCategory category)
         {
             // set the current quiz
             _currentQuiz = new Quiz();
 
             // set the quiz title
-            _currentQuiz.LoadQuestions(category);
+            if (!_currentQuiz.LoadQuestions(category))
+                return false;
 
             if (_currentQuiz.totalQuestions() >= 10)
                 return true;
 
+            MessageBox.Show("Not enough questions available for this category. Please add questions to this category.", "No Questions", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return false;
         }
 
@@ -163,21 +160,6 @@ namespace SeaAnimalQuiz.UI
         private void btnBack_Click(object sender, EventArgs e)
         {
             MainForm.Instance.SetHomePage();
-        }
-
-        private void pbQuizBackground_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbLoseFocus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlQuestion_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

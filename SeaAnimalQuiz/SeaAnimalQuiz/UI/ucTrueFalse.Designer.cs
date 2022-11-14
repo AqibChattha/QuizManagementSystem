@@ -35,9 +35,9 @@
             this.rbAnswer2 = new System.Windows.Forms.RadioButton();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.pnlQuestion = new System.Windows.Forms.Panel();
-            this.tmrNextQuestion = new System.Windows.Forms.Timer(this.components);
-            this.pbQuestion = new System.Windows.Forms.PictureBox();
             this.tbQuestionText = new System.Windows.Forms.TextBox();
+            this.pbQuestion = new System.Windows.Forms.PictureBox();
+            this.tmrNextQuestion = new System.Windows.Forms.Timer(this.components);
             this.tlpTrueFalseQuestionAnswers.SuspendLayout();
             this.tlpMcqAnswers.SuspendLayout();
             this.pnlQuestion.SuspendLayout();
@@ -82,12 +82,11 @@
             this.rbAnswer1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbAnswer1.AutoSize = true;
             this.rbAnswer1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAnswer1.Location = new System.Drawing.Point(90, 12);
+            this.rbAnswer1.Location = new System.Drawing.Point(104, 12);
             this.rbAnswer1.Name = "rbAnswer1";
-            this.rbAnswer1.Size = new System.Drawing.Size(80, 21);
+            this.rbAnswer1.Size = new System.Drawing.Size(52, 21);
             this.rbAnswer1.TabIndex = 0;
-            this.rbAnswer1.TabStop = true;
-            this.rbAnswer1.Text = "Answer 1";
+            this.rbAnswer1.Text = "True";
             this.rbAnswer1.UseVisualStyleBackColor = true;
             // 
             // rbAnswer2
@@ -96,12 +95,11 @@
             this.rbAnswer2.AutoSize = true;
             this.rbAnswer2.BackColor = System.Drawing.Color.White;
             this.rbAnswer2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAnswer2.Location = new System.Drawing.Point(350, 12);
+            this.rbAnswer2.Location = new System.Drawing.Point(363, 12);
             this.rbAnswer2.Name = "rbAnswer2";
-            this.rbAnswer2.Size = new System.Drawing.Size(82, 21);
+            this.rbAnswer2.Size = new System.Drawing.Size(56, 21);
             this.rbAnswer2.TabIndex = 1;
-            this.rbAnswer2.TabStop = true;
-            this.rbAnswer2.Text = "Answer 2";
+            this.rbAnswer2.Text = "False";
             this.rbAnswer2.UseVisualStyleBackColor = false;
             // 
             // btnSubmit
@@ -129,21 +127,6 @@
             this.pnlQuestion.Size = new System.Drawing.Size(522, 138);
             this.pnlQuestion.TabIndex = 1;
             // 
-            // tmrNextQuestion
-            // 
-            this.tmrNextQuestion.Interval = 800;
-            this.tmrNextQuestion.Tick += new System.EventHandler(this.tmrNextQuestion_Tick);
-            // 
-            // pbQuestion
-            // 
-            this.pbQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbQuestion.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbQuestion.Location = new System.Drawing.Point(384, 0);
-            this.pbQuestion.Name = "pbQuestion";
-            this.pbQuestion.Size = new System.Drawing.Size(138, 138);
-            this.pbQuestion.TabIndex = 3;
-            this.pbQuestion.TabStop = false;
-            // 
             // tbQuestionText
             // 
             this.tbQuestionText.BackColor = System.Drawing.Color.White;
@@ -160,6 +143,21 @@
             this.tbQuestionText.TabIndex = 4;
             this.tbQuestionText.Text = "True False Questions";
             this.tbQuestionText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pbQuestion
+            // 
+            this.pbQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbQuestion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbQuestion.Location = new System.Drawing.Point(384, 0);
+            this.pbQuestion.Name = "pbQuestion";
+            this.pbQuestion.Size = new System.Drawing.Size(138, 138);
+            this.pbQuestion.TabIndex = 3;
+            this.pbQuestion.TabStop = false;
+            // 
+            // tmrNextQuestion
+            // 
+            this.tmrNextQuestion.Interval = 800;
+            this.tmrNextQuestion.Tick += new System.EventHandler(this.tmrNextQuestion_Tick);
             // 
             // ucTrueFalse
             // 

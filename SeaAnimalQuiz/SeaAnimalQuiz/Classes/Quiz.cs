@@ -1,5 +1,9 @@
-﻿using System;
+﻿using SchoolManagementSystem.Classes;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -52,59 +56,43 @@ namespace SeaAnimalQuiz.Classes
         /// <summary>
         /// load the questions from the text file.
         /// </summary>
-        public void LoadQuestions(QuizCategory category)
+        public bool LoadQuestions(QuizCategory category)
         {
-            // load the questions from the FishQuestions.txt file in the Data directory.
-            string file = "";
-            if (category == QuizCategory.Fish)
-            {
-                file = "../../Data/FishQuestions.txt";
-            }
-            else if (category == QuizCategory.Birds)
-            {
-                file = "../../Data/BirdQuestions.txt";
-            }
-            else if (category == QuizCategory.Reptiles)
-            {
-                file = "../../Data/ReptileQuestions.txt";
-            }
-
             try
             {
-                if (File.Exists(file))
+                var con = Config.Instance.Connection;
+                SqlCommand cmd = new SqlCommand("dbo.[Get_QuestionsForQuiz]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Category", category.ToString()));
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    // Store each line in array of strings
-                    string[] lines = File.ReadAllLines(file);
-
-
-                    foreach (string ln in lines)
+                    if (reader["qType"].ToString().Equals(QuestionType.MultipleChoice.ToString()))
                     {
-                        if (!(ln == null || ln == ""))
-                        {
-                            string[] data = ln.Split(new string[] { ",;," }, StringSplitOptions.None);
-                            if (data[0].Equals(QuestionType.MultipleChoice.ToString()))
-                            {
-                                // create MCQ and load data
-                                MCQ mcq = new MCQ(data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
-                                questions.Add(mcq);
-                            }
-                            else if (data[0].Equals(QuestionType.TrueFalse.ToString()))
-                            {
-                                // create True False and load data
-                                TrueFalse trueFalse = new TrueFalse(data[1], data[2], data[3], data[4], data[5]);
-                                questions.Add(trueFalse);
-                            }
-                        }
+                        MCQ mcq = new MCQ(reader["qText"].ToString()
+                            , reader["correctAnswer"].ToString()
+                            , reader["option1"].ToString()
+                            , reader["option2"].ToString()
+                            , reader["option3"].ToString()
+                            , reader["option4"].ToString()
+                            , reader["image"] == DBNull.Value ? null : (byte[])reader["image"]);
+                        questions.Add(mcq);
+                    }
+                    else if (reader["qType"].ToString().Equals(QuestionType.TrueFalse.ToString()))
+                    {
+                        TrueFalse trueFalse = new TrueFalse(reader["qText"].ToString()
+                            , reader["correctAnswer"].ToString()
+                            , reader["image"] == DBNull.Value ? null : (byte[])reader["image"]);
+                        questions.Add(trueFalse);
                     }
                 }
+                reader.Close();
             }
             catch (Exception)
             {
                 MessageBox.Show("There was an error loading the questions.", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                return false;
             }
-
-            // Shuffle the questions.
-            ShuffleQuestions();
 
             // Reset the current question number.
             currentQuestionNumber = 0;
@@ -114,29 +102,8 @@ namespace SeaAnimalQuiz.Classes
 
             // Reset the number of incorrect answers.
             incorrectAnswers = 0;
-        }
 
-        /// <summary>
-        /// shuffle the questions in the list and only retain 20 questions.
-        /// </summary>
-        private void ShuffleQuestions()
-        {
-            // Create a new random number generator.
-            Random random = new Random();
-
-            // Shuffle the questions in the list.
-            for (int i = 0; i < questions.Count; i++)
-            {
-                // Get a random index.
-                int randomIndex = random.Next(0, questions.Count);
-
-                // Swap the questions at the current index and the random index.
-                Question temp = questions[i];
-                questions[i] = questions[randomIndex];
-                questions[randomIndex] = temp;
-            }
-
-            try { questions = questions.GetRange(0, 20); } catch (Exception) { }
+            return true;
         }
 
         /// <summary>

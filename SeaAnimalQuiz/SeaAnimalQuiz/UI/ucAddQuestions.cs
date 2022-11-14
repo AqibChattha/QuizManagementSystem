@@ -83,32 +83,13 @@ namespace SeaAnimalQuiz.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string fileToAppend = "";
-            if (cbCategories.SelectedItem.ToString().Equals("Fish"))
-            {
-                fileToAppend = "../../Data/FishQuestions.txt";
-            }
-            else if (cbCategories.SelectedItem.ToString().Equals("Birds"))
-            {
-                fileToAppend = "../../Data/BirdQuestions.txt";
-            }
-            else if (cbCategories.SelectedItem.ToString().Equals("Reptiles"))
-            {
-                fileToAppend = "../../Data/ReptileQuestions.txt";
-            }
-            else
-            {
-                MessageBox.Show("Please select the question category.", "Select category", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             if (rbtnMcq.Checked)
             {
-                ucAdd_MCQ.Instance.saveQuestion(fileToAppend);
+                ucAdd_MCQ.Instance.saveQuestion(cbCategories.SelectedItem.ToString());
             }
             else if (rbtnTrueFalse.Checked)
             {
-                ucAdd_TrueFalse.Instance.saveQuestion(fileToAppend);
+                ucAdd_TrueFalse.Instance.saveQuestion(cbCategories.SelectedItem.ToString());
             }
             else
             {

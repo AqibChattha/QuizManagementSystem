@@ -11,53 +11,23 @@ namespace SeaAnimalQuiz.Classes
     /// </summary>
     internal class TrueFalse : Question
     {
-        // first expected answer
-        string firstAnswer;
+        // image file
+        byte[] image;
 
-        // second expected answer
-        string secondAnswer;
-
-        // image file name
-        string imageFileName;
-
-        public TrueFalse(string questionText, string correctAnswer, string firstAnswer, string secondAnswer, string imageFileName)
+        public TrueFalse(string questionText, string correctAnswer, byte[] image)
             : base(questionText, correctAnswer, QuestionType.TrueFalse)
         {
-            this.firstAnswer = firstAnswer;
-            this.secondAnswer = secondAnswer;
-            this.imageFileName = imageFileName;
-        }
-
-        /// <summary>
-        /// This method will get the first answer.
-        /// </summary>
-        public string FirstAnswer
-        {
-            get
-            {
-                return firstAnswer;
-            }
-        }
-
-        /// <summary>
-        /// This method will get the second answer.
-        /// </summary>
-        public string SecondAnswer
-        {
-            get
-            {
-                return secondAnswer;
-            }
+            this.image = image;
         }
 
         /// <summary>
         /// This method will get the image file name.
         /// </summary>
-        public string ImageFileName
+        public byte[] Image
         {
             get
             {
-                return imageFileName;
+                return image;
             }
         }
 

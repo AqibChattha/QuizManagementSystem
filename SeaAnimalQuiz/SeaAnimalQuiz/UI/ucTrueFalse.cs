@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -50,10 +51,7 @@ namespace SeaAnimalQuiz.UI
             tbQuestionText.Text = trueFalse.QuestionText;
             setTextBox_Scroll();
 
-            try { pbQuestion.BackgroundImage = Image.FromFile("../../Images/" + trueFalse.ImageFileName); } catch (Exception) { pbQuestion.BackgroundImage = null; }
-
-            rbAnswer1.Text = trueFalse.FirstAnswer;
-            rbAnswer2.Text = trueFalse.SecondAnswer; 
+            try { pbQuestion.BackgroundImage = byteArrayToImage(trueFalse.Image); } catch (Exception) { pbQuestion.BackgroundImage = null; }
 
             // set buttons color to default
             rbAnswer1.BackColor = Color.White;
@@ -67,6 +65,14 @@ namespace SeaAnimalQuiz.UI
             // set buttons to unchecked
             rbAnswer1.Checked = false;
             rbAnswer2.Checked = false;
+        }
+
+        // byte array to Image
+        private Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
         }
 
         private void setTextBox_Scroll()

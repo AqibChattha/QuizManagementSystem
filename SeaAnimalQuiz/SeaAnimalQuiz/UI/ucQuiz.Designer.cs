@@ -37,8 +37,8 @@
             this.lbCorrectAnswersCount = new System.Windows.Forms.Label();
             this.lbIncorrectAnswersCount = new System.Windows.Forms.Label();
             this.lbTotalAnswersCount = new System.Windows.Forms.Label();
-            this.pbQuizBackground = new System.Windows.Forms.PictureBox();
             this.lbLoseFocus = new System.Windows.Forms.Label();
+            this.pbQuizBackground = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbQuizBackground)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +51,6 @@
             this.pnlQuestion.Name = "pnlQuestion";
             this.pnlQuestion.Size = new System.Drawing.Size(528, 198);
             this.pnlQuestion.TabIndex = 1;
-            this.pnlQuestion.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlQuestion_Paint);
             // 
             // btnBack
             // 
@@ -158,6 +157,14 @@
             this.lbTotalAnswersCount.TabIndex = 0;
             this.lbTotalAnswersCount.Text = "Ttl";
             // 
+            // lbLoseFocus
+            // 
+            this.lbLoseFocus.AutoSize = true;
+            this.lbLoseFocus.Location = new System.Drawing.Point(766, 13);
+            this.lbLoseFocus.Name = "lbLoseFocus";
+            this.lbLoseFocus.Size = new System.Drawing.Size(0, 13);
+            this.lbLoseFocus.TabIndex = 1;
+            // 
             // pbQuizBackground
             // 
             this.pbQuizBackground.BackgroundImage = global::SeaAnimalQuiz.Properties.Resources.question;
@@ -168,16 +175,6 @@
             this.pbQuizBackground.Size = new System.Drawing.Size(784, 450);
             this.pbQuizBackground.TabIndex = 0;
             this.pbQuizBackground.TabStop = false;
-            this.pbQuizBackground.Click += new System.EventHandler(this.pbQuizBackground_Click);
-            // 
-            // lbLoseFocus
-            // 
-            this.lbLoseFocus.AutoSize = true;
-            this.lbLoseFocus.Location = new System.Drawing.Point(766, 13);
-            this.lbLoseFocus.Name = "lbLoseFocus";
-            this.lbLoseFocus.Size = new System.Drawing.Size(0, 13);
-            this.lbLoseFocus.TabIndex = 4;
-            this.lbLoseFocus.Click += new System.EventHandler(this.lbLoseFocus_Click);
             // 
             // ucQuiz
             // 
@@ -186,11 +183,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pnlQuestion);
-            this.Controls.Add(this.pbQuizBackground);
             this.Controls.Add(this.lbLoseFocus);
+            this.Controls.Add(this.pbQuizBackground);
             this.Name = "ucQuiz";
             this.Size = new System.Drawing.Size(784, 450);
-            this.Load += new System.EventHandler(this.ucQuiz_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbQuizBackground)).EndInit();
@@ -201,7 +197,6 @@
 
         #endregion
         private System.Windows.Forms.Panel pnlQuestion;
-        private System.Windows.Forms.PictureBox pbQuizBackground;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lbCorrectAnswers;
@@ -211,5 +206,6 @@
         private System.Windows.Forms.Label lbIncorrectAnswersCount;
         private System.Windows.Forms.Label lbTotalAnswersCount;
         private System.Windows.Forms.Label lbLoseFocus;
+        private System.Windows.Forms.PictureBox pbQuizBackground;
     }
 }

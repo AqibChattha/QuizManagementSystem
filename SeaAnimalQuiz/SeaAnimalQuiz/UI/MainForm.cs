@@ -75,10 +75,6 @@ namespace SeaAnimalQuiz
                 ucQuiz.Instance.RefreshUc();
                 ucQuiz.Instance.BringToFront();
             }
-            else
-            {
-                MessageBox.Show("Not enough questions available for this category. Please add questions to this category.", "No Questions", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)

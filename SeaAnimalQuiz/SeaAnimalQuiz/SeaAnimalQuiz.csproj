@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Config.cs" />
     <Compile Include="Classes\MCQ.cs" />
     <Compile Include="Classes\Question.cs" />
     <Compile Include="Classes\Quiz.cs" />
